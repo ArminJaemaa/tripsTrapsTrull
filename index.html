@@ -32,7 +32,7 @@
         for (let row = 0; row < 3; row++) {
           for (let col = 0; col < 3; col++) {
             let x = col * step;
-            let y = row * step;2
+            let y = row * step;
 
             let d = g.getImageData(x + offset, y + offset, sampleSize, sampleSize);
             board[index] = checkColor(d.data);
@@ -40,7 +40,7 @@
             index++;
         	}
 	  	}
-		currentGame.innerHTMl = 
+		currentGame.innerHTML = 
 		"<b>Massiiv:</b> [" + board.join(", ") + "]<br><br>" +
         "<b>Laua vaade:</b><br>" +
         board.slice(0, 3).join(" ") + "<br>" +
@@ -68,7 +68,7 @@
   </head>
   <body onload="start()">
     <video id="v1" controls autoplay style="width: 45%" ></video>
-	<canvas id="c1" width="320" height="240" style="width: 45%" ></canvas><br />	 
+	<canvas id="c1" width="300" height="300" style="width: 45%" ></canvas><br />	 
 	<canvas id="c2" width="40" height="40" ></canvas>	
     <span id="gameData"></span>
   </body>
