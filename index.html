@@ -16,7 +16,7 @@
 	   navigator.mediaDevices.getUserMedia({video: {facingMode: {ideal: "environment"}}}).then((stream) => {
          player.srcObject = stream;
        });
-	   setInterval(capture, 1000);
+	   setInterval(capture, 3000);
 	  }
 	  function capture(){
         if (!player.videoWidth) return;
