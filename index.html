@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Video</title>
+    <title>TripsTrapsTrull Kaamera</title>
 	<script>
 	  let player=null, c=null, g=null, g2=null;
 	  function start(){
@@ -11,7 +11,7 @@
 	   g=c.getContext("2d");
 	   g2=document.getElementById("c2").getContext("2d");
 	   span1=document.getElementById("s1");
-	   navigator.mediaDevices.getUserMedia({video:true}).then((stream) => {
+	   navigator.mediaDevices.getUserMedia({video: {facingMode: {ideal: "environment"}}}).then((stream) => {
          player.srcObject = stream;
        });
 	   setInterval(capture, 1000);
