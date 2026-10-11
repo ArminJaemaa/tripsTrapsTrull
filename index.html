@@ -6,7 +6,7 @@
 	<script>
 	  let player=null, c=null, g=null, g2=null;
 	  let board = [0,0,0,0,0,0,0,0,0]
-    const URL = "https://script.google.com/macros/s/AKfycbyn1oVSICVWv-Be3px5ePdP59S7t9Mo3FDrV0e6yE9TgjeoNms4Cw90S63YPA7Jos8E/exec"
+    const URL_SCRIPT = "https://script.google.com/macros/s/AKfycbyn1oVSICVWv-Be3px5ePdP59S7t9Mo3FDrV0e6yE9TgjeoNms4Cw90S63YPA7Jos8E/exec"
 	  function start(){
 	   player=document.getElementById("v1");
 	   c=document.getElementById("c1")
@@ -24,7 +24,7 @@
       let statusDiv = document.getElementById("gameData");
       statusDiv.innerHTML += "<br><b>Saadan andmeid serverisse...</b>";
 
-      fetch(SCRIPT_URL, {
+      fetch(URL_SCRIPT, {
         method: "POST",
         body: JSON.stringify({ board: board })
       })
