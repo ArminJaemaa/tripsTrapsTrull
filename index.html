@@ -26,6 +26,10 @@
 
       fetch(URL_SCRIPT, {
         method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain"
+        },
         body: JSON.stringify({ board: board })
       })
       .then(res => res.json())
