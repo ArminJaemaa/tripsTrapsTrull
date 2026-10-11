@@ -6,6 +6,7 @@
 	<script>
 	  let player=null, c=null, g=null, g2=null;
 	  let board = [0,0,0,0,0,0,0,0,0]
+    const URL = "https://script.google.com/macros/s/AKfycbyn1oVSICVWv-Be3px5ePdP59S7t9Mo3FDrV0e6yE9TgjeoNms4Cw90S63YPA7Jos8E/exec"
 	  function start(){
 	   player=document.getElementById("v1");
 	   c=document.getElementById("c1")
@@ -18,6 +19,24 @@
        });
 	   setInterval(capture, 3000);
 	  }
+
+    function sendData() {
+      let statusDiv = document.getElementById("gameData");
+      statusDiv.innerHTML += "<br><b>Saadan andmeid serverisse...</b>";
+
+      fetch(SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify({ board: board })
+      })
+      .then(res => res.json())
+      .then(data => {
+        alert("Andmed edukalt serveritabelisse saadetud!");
+      })
+      .catch(err => {
+        alert("Viga saatmisel: " + err);
+      });
+    }
+
 	  function capture(){
         if (!player.videoWidth) return;
         
@@ -71,5 +90,9 @@
 	<canvas id="c1" width="300" height="300" style="width: 45%" ></canvas><br />	 
 	<canvas id="c2" width="40" height="40" ></canvas>	
     <span id="gameData"></span>
+    <br/>
+    <button onclick="sendData()" style="padding: 10px; font-size: 16px;">
+      Saada seis
+    </button>
   </body>
 </html>
